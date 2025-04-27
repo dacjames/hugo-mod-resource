@@ -24,8 +24,10 @@
                 {{- with .Err }}
                     {{- $msg := print $msg ". " . }}
                     {{- partial "error-msg" (dict "caller" $name "ctx" $ctx "errorMsg" $msg "errorLevel" $errorLevel ) }}
-                {{- else }}
+                {{- else with .Value }}
                     {{- $r = . }}
+                {{- else }}
+                    {{ errorf "Unable to get remote resource %q" $url }}
                 {{ end }}
             {{- end }}
         {{- else }}
