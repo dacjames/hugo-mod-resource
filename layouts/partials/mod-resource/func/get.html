@@ -9,7 +9,7 @@
 
 {{- $r := "" }}
 {{- if $url.IsAbs }} {{- /* Remote */}}
-    {{- with resources.GetRemote $url.String }}
+    {{- with try (resources.GetRemote $url.String) }}
         {{- with .Err }}
             {{- $msg := print $errorMsg ". " . }}
             {{- partial "error-msg" (dict "caller" $name "ctx" $ctx "errorMsg" $msg "errorLevel" $errorLevel ) }}

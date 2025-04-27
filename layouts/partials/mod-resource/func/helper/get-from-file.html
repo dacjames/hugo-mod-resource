@@ -20,7 +20,7 @@
         {{- $msg := printf "Can't find the resource %q in data file %q" $url.String $file }}
         
         {{- if $url.IsAbs }} {{- /* Remote */}}
-            {{- with resources.GetRemote $url.String }}
+            {{- with try (resources.GetRemote $url.String) }}
                 {{- with .Err }}
                     {{- $msg := print $msg ". " . }}
                     {{- partial "error-msg" (dict "caller" $name "ctx" $ctx "errorMsg" $msg "errorLevel" $errorLevel ) }}

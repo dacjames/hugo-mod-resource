@@ -8,7 +8,7 @@
 {{- $map := "" }}
 {{- if $url.IsAbs }} {{- /* Remote */}}
     {{- $errorMsg := printf "Can't find the resource %q." $url.String }}
-    {{- with resources.GetRemote $url.String }}
+    {{- with try (resources.GetRemote $url.String) }}
         {{- with .Err }}
             {{- $msg := print $errorMsg ". " . }}
             {{- partial "error-msg" (dict "caller" $name "ctx" $ctx "errorMsg" $msg "errorLevel" $errorLevel ) }}
