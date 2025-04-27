@@ -1,8 +1,8 @@
-module github.com/bowman2001/hugo-mod-resource/exampleSite
+module github.com/dacjames/hugo-mod-resource/exampleSite
 
 go 1.21.6
 
-replace github.com/bowman2001/hugo-mod-resource => ../
+replace github.com/dacjames/hugo-mod-resource => ../
 
 require (
 	github.com/bowman2001/hugo-mod-error-message v0.3.0 // indirect
