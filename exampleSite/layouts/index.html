@@ -29,7 +29,7 @@
 <h3>Missing resources</h3>
 <p>Depending on the error level the function ignores them, warns about them or breaks the build. The tests here lead to empty variables and <code>get-resource</code> writes a warning to the console:</p>
 {{- $missing := partial "mod-resource/func/get-with-params" (dict "url" (urls.Parse "test-missing") "ctx" . "errorLevel" "warning") }}
-{{- $remotemissing := partial "mod-resource/func/get-with-params" (dict "url" (urls.Parse "https://picsum/100/50") "ctx" . "errorLevel" "warning") }}
+{{- $remotemissing := partial "mod-resource/func/get-with-params" (dict "url" (urls.Parse "https://picsum.photos/100/50") "ctx" . "errorLevel" "warning") }}
 <dl>
     <dt>Local resource (for page or site)</dt>
     <dd>Get 'test-missing.yaml': <strong>{{ $missing }}</strong></dd>
